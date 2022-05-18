@@ -1,1 +1,1 @@
-​
+In the Minstack.prototype.pop() method, I opted to set this.min to Infinity, then loop through the array, replacing this.min with whatever is the lowest value in the array. This worked for the solution, but I realize that this might get bogged down if the number of elements in the array were huge. Also, setting this.min to Infinity and manually looping through the array could be replaced by a single Math.min(...this.stack) call, but I thihnk ultimately the process behind the scenes and the time taken would be about the same.
