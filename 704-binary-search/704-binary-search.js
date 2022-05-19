@@ -4,7 +4,6 @@
  * @return {number}
  */
 const search = function(nums, target, index = 0) {
-    let newNums = nums;
     const half = Math.round(nums.length / 2);
     
     if (nums.length <= 1) {
