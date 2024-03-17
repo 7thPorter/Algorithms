@@ -1,0 +1,15 @@
+/**
+ * The outer loop iterates through the array.
+ * The inner loop also iterates through the array, adding the value at each index to the value at the outer loop's index.
+ * Once the two values equal the target number, those indices are returned in an array.
+ */
+
+function twoSum(nums: number[], target: number): number[] {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i+1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+};
