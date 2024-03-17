@@ -1,0 +1,20 @@
+/**
+* The outer loop will iterate through the array, giving the first number of our equation.
+* Once the inner loop iterates through the array completely, if the numbers at i and j never added up to `target`,
+* the outer loop moves to the next index and the process begins again.
+*/
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+const twoSum = function(nums, target) {
+    for (let i = 0; i < nums.length; i ++) {
+       for (let j = i+1; j <nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+};
