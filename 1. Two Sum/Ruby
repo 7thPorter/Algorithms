@@ -1,0 +1,26 @@
+nums = [2,7,11,15]
+target = 9
+
+# To solve this, you need to find the indices of the two numbers that add to the target value
+# Turn nums into an array of pairs with the number, and its index as the second value
+# Sort nums from lowest number to highest
+# Start with the 0 index, and add the last index, repeating down the indices
+# If the sum is equal to the target, you want the indices to be returned
+# If the sum 
+
+
+def two_sum(nums, target)
+    nums.each_with_index { |n,i| nums[i] = [n,i] }
+    nums.sort_by! { |sub_arr| sub_arr[0] }
+    i = 0
+    j = nums.length - 1
+    while i < j
+        sum = nums[i][0] + nums[j][0]
+        return [nums[i][1],nums[j][1]] if sum == target
+        if sum > target
+            j -= 1
+        else
+            i += 1
+        end
+    end
+end
