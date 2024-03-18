@@ -1,0 +1,74 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    const array = s.split('');
+    let total = 0;
+    for (let i = 0; i < array.length; i++) {
+        switch (array[i]) {
+            case 'I':
+                if ((i !== array.length - 1) && (array[i + 1] === 'V')) {
+                    total += 4;
+                } else if ((i !== array.length - 1) && (array[i + 1] === 'X')) {
+                    total += 9;
+                } else {
+                    total += 1;
+                }
+                break;
+            case 'V':
+                if ((i !== 0) && (array[i - 1] === 'I')) {
+                    break;
+                } else {
+                    total += 5;
+                }
+                break;
+            case 'X':
+                if ((i !== 0) && (array[i - 1] === 'I')) {
+                    break;
+                } else if ((i !== array.length - 1) && (array[i + 1] === 'L')) {
+                    total += 40;
+                } else if ((i !== array.length - 1) && (array[i + 1] === 'C')) {
+                    total += 90;
+                } else {
+                    total += 10;
+                }
+                break;
+            case 'L':
+                if ((i !== 0) && (array[i - 1] === 'X')) {
+                    break;
+                } else {
+                    total += 50;
+                }
+                break;
+            case 'C':
+                if ((i !== 0) && (array[i - 1] === 'X')) {
+                    break;
+                } else if ((i !== array.length - 1) && (array[i + 1] === 'D')) {
+                    total += 400;
+                } else if ((i !== array.length - 1) && (array[i + 1] === 'M')) {
+                    total += 900;
+                } else {
+                    total += 100;
+                }
+                break;
+            case 'D':
+                if ((i !== 0) && (array[i - 1] === 'C')) {
+                    break;
+                } else {
+                    total += 500;
+                }
+                break;
+            case 'M':
+                if ((i !== 0) && (array[i - 1] === 'C')) {
+                    break;
+                } else {
+                    total += 1000;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    return total;
+};
