@@ -70,3 +70,11 @@ def roman_to_int(s)
   end
   num
 end
+
+# This is the more optional solution, because there is less code to iterate through
+# When you check if the previous value is less than the current one, you can just subtract i.e.
+# LVIII, L > V, so add L to num
+# VIII, V > I, so add V to num
+# etc.
+# XLIV, X < L, so subtract X from num
+# LIV, L > I, so add L to num
