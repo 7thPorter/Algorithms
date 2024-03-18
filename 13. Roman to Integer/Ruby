@@ -54,12 +54,17 @@ def roman_to_int(s)
   }
 
   num = 0
+
+# This method says, here is my variable, i, start at 0
+# The three dots says, continue from 0 until the length of the string - 1, don't count the length
   for i in 0...s.length do
-    require 'pry'; binding.pry
+
+# s[i+1] says, if the next index exists, AND the value of the next index is bigger than the current index
     if s[i+1] && nums[s[i+1]] > nums[s[i]]
-      require 'pry'; binding.pry
+# subtract the next index by the current index and keep track of it with the variable num
         num -= nums[s[i]]
     else
+# otherwise, add the two values together
         num += nums[s[i]]
     end
   end
