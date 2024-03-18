@@ -1,0 +1,67 @@
+# Original plan: 
+# First make a key value hash
+# Then turn string into an array
+# Then use conditionals to either add or subtract the values
+
+def roman_to_int(s)
+  roman_hash["I"] = 1
+  roman_hash = Hash.new
+  roman_hash["V"] = 5
+  roman_hash["X"] = 10
+  roman_hash["L"] = 50
+  roman_hash["C"] = 100
+  roman_hash["D"] = 500
+  roman_hash["M"] = 1000
+   symbols = s.chars
+   sum = 0
+   while symbols != []
+       if symbols[0] == "I" && symbols[1] == "V"
+           roman_hash[symbols.shift]
+           roman_hash["V"] = 4
+       elsif symbols[0] == "I" && symbols[1] == "X"
+           roman_hash[symbols.shift]
+           roman_hash["X"] = 9
+       elsif symbols[0] == "X" && symbols[1] == "L"
+           roman_hash[symbols.shift]
+           roman_hash["L"] = 40
+       elsif symbols[0] == "X" && symbols[1] == "C"
+           roman_hash[symbols.shift]
+           roman_hash["C"] = 90
+       elsif symbols[0] == "C" && symbols[1] == "D"
+           roman_hash[symbols.shift]
+           roman_hash["D"] = 400
+       elsif symbols[0] == "C" && symbols[1] == "M"
+           roman_hash[symbols.shift]
+           roman_hash["M"] = 900
+       end
+       sum = sum + roman_hash[symbols.first]
+       symbols.shift
+   end
+   sum
+end
+
+# This is the more optimal solution
+
+def roman_to_int(s)
+  nums = {
+    'I' => 1,
+    'V' => 5,
+    'X' => 10,
+    'L' => 50,
+    'C' => 100,
+    'D' => 500,
+    'M' => 1000,
+  }
+
+  num = 0
+  for i in 0...s.length do
+    require 'pry'; binding.pry
+    if s[i+1] && nums[s[i+1]] > nums[s[i]]
+      require 'pry'; binding.pry
+        num -= nums[s[i]]
+    else
+        num += nums[s[i]]
+    end
+  end
+  num
+end
